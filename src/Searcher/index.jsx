@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Stack, TextField, IconButton } from '@mui/material';
 import { Search as SearchIcon } from '@mui/icons-material';
 
-export const Searcher = () => {
+export const Searcher = ({ setInputUser }) => {
+  const [valueInput, setValueInput] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setInputUser(valueInput);
+  };
+
+  const handleChange = ({ target }) => {
+    setValueInput(target.value);
+  };
+
   return (
     <Stack
       direction='row'
@@ -16,13 +27,16 @@ export const Searcher = () => {
         label='Github User'
         placeholder='Octocat'
         variant='outlined'
+        value={valueInput}
+        onChange={handleChange}
         size='small'
         sx={{
           width: '90%',
         }}
       />
       <IconButton
-      size='small'
+        onClick={handleSubmit}
+        size='small'
         sx={{
           left: '-45px',
         }}
