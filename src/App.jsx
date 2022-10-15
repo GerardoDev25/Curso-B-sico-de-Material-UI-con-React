@@ -5,16 +5,32 @@ import { getUser } from './services/users';
 
 export const App = () => {
   const [inputUser, setInputUser] = useState('Octocat');
-  const [userState, setUserState] = useState('inputUser');
+  const [userState, setUserState] = useState(inputUser);
+  const [notFound, setNotFound] = useState(false);
 
   const loadUser = async (user) => {
     const userResponse = await getUser(user);
+
+    if (userState === 'Octocat') {
+      localStorage.setItem('octocat', JSON.stringify(userResponse));
+    }
+
+    if (userResponse.message === 'Not Found') {
+      const octocat = localStorage.getItem('octocat');
+      setInputUser(octocat);
+      setNotFound(true);
+    } else {
+      setUserState(userResponse);
+      setNotFound(false);
+    }
+
     console.log(userResponse);
   };
 
   useEffect(() => {
     loadUser(inputUser);
-  }, []);
+    console.log('hola');
+  }, [inputUser]);
 
   return (
     <Container
