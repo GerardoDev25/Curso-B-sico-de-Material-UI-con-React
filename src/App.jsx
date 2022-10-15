@@ -1,6 +1,7 @@
 import { Container } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { Searcher } from './Searcher';
+import { Searcher } from './components/Searcher';
+import { UserCard } from './containers/UserCard';
 import { getUser } from './services/users';
 
 export const App = () => {
@@ -46,6 +47,8 @@ export const App = () => {
       }}
     >
       <Searcher inputUser={inputUser} setInputUser={setInputUser} />
-    </Container>
+      <UserCard userState={userState}/>
+      {/* <h1>hollo everyone</h1> */}
+    </Container >
   );
 };
