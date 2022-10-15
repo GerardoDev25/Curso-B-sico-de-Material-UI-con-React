@@ -1,6 +1,7 @@
 import { Typography } from '@mui/material';
 import { Stack } from '@mui/system';
 import React from 'react';
+import { PaperInformation } from '../../components/PaperInformation';
 
 export const Description = ({ userState }) => {
   const { bio } = userState;
@@ -14,7 +15,8 @@ export const Description = ({ userState }) => {
             : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate odio voluptatum expedita nihil,'}
         </Typography>
       </Stack>
-      {/* <PaperInformation/>
+      <PaperInformation userState={userState} />
+      {/* 
       <LocationInformation/> */}
     </>
   );
