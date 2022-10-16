@@ -7,29 +7,41 @@ export const LocationInformation = ({ userState }) => {
   const { location, twitter_username, blog, company } = userState;
 
   return (
-    <Grid container>
+    <Grid
+      container
+      spacing={2}
+      sx={{
+        marginTop: '15px',
+      }}
+    >
       <Grid item xs={6}>
-        <Stack>
+        <Stack direction='row' spacing={2}>
           <LocationOn />
           <Typography>{location}</Typography>
         </Stack>
       </Grid>
       <Grid item xs={6}>
-        <Stack>
+        <Stack direction='row' spacing={2}>
           <Twitter />
           <Typography>{twitter_username ? twitter_username : 'Jonh Doe'}</Typography>
         </Stack>
       </Grid>
       <Grid item xs={6}>
-        <Stack>
+        <Stack direction='row' spacing={2}>
           <Business />
           <Typography>{company ? company : 'not Avalable'}</Typography>
         </Stack>
       </Grid>
       <Grid item xs={6}>
-        <Stack>
+        <Stack direction='row' spacing={2}>
           <Language />
-          <Typography>{blog ? blog : 'not Avalable'}</Typography>
+          {blog ? (
+            <a href={blog} target='_blank'>
+              <Typography>{blog}</Typography>
+            </a>
+          ) : (
+            <Typography>not Avalable</Typography>
+          )}
         </Stack>
       </Grid>
     </Grid>

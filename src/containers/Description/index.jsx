@@ -9,14 +9,14 @@ export const Description = ({ userState }) => {
 
   return (
     <>
-      <Stack>
-        <Typography>
+      <Stack sx={{ justifyContent: 'center' }}>
+        <Typography variant='body1'>
           {bio
             ? bio
             : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate odio voluptatum expedita nihil,'}
         </Typography>
       </Stack>
-      <PaperInformation userState={userState} />
+      <PaperInformation  userState={userState} />
       <LocationInformation userState={userState} />
     </>
   );
