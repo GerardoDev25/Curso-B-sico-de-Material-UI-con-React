@@ -25,12 +25,12 @@ export const App = () => {
       setNotFound(false);
     }
 
-    console.log(userResponse);
+    // console.log(userResponse);
   };
 
   useEffect(() => {
     loadUser(inputUser);
-    console.log('hola');
+    // console.log('hola');
   }, [inputUser]);
 
   return (
